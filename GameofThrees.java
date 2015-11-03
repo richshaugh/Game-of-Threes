@@ -1,10 +1,10 @@
-import java.io.*
+import java.io.*;
 public class GameofThrees
 {
-	public static void goThrees()
+	public static void goThrees(int number)
 	{
 		
-		int number = 31337357;
+		
 		System.out.println(number);
 		
 		
@@ -28,11 +28,28 @@ public class GameofThrees
 		 	
 		}
 		
-		System.out.println(number);
+		
 	}
 	
-	public static void main(String[]args)
+	public static void main(String[]args) throws IOException
 	{
-		goThrees();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String line;
+		String choice;
+		int num;
+		boolean fin = true;
+		
+		while(fin)
+		{
+		System.out.print("Enter a number: ");
+		line = br.readLine();
+		num = Integer.parseInt(line);
+		goThrees(num);
+		System.out.print("Do you wish to continue?Press 0 to exit or any other key to continue: ");
+		choice = br.readLine();
+		if(choice.equals("0"))
+	       System.exit(0);
+			
 	}
+}
 }
