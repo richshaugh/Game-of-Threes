@@ -1,14 +1,14 @@
 # Game-of-Threes
-This is a challenge from r/dailyprogrammer. It is writting in Java. This program can further be improved by allowing a user to enter
-a number of their choice
+This is a challenge from r/dailyprogrammer. It is writting in Java. 
 
+import java.io.*;
 public class GameofThrees
 {
-	public static void goThrees()
+	public static void goThrees(int number)
 	{
 		
-		int number = 31337357;
-		System.out.print(number+"\t");
+		
+		System.out.println(number);
 		
 		
 		while (number != 1)
@@ -16,26 +16,43 @@ public class GameofThrees
 			if(number%3 == 0)
 			{
 				number = number/3;
-				System.out.print("0");
+				System.out.println(number+" 0");
 			}
 		 	else if ((number+1)%3 == 0)
 		 	{
 		 		number = number +1; 
-		 		System.out.print("+1");
+		 		System.out.println(number+" +1");
 		 	}
 		 	else if  ((number-1)%3 == 0)
 		 	{
 		 		number = number - 1;
-		 		System.out.print("-1");
+		 		System.out.println(number+" -1");
 		 	}
-		 	System.out.print("\t");
+		 	
 		}
 		
-		System.out.println("Number is: "+number);
+		
 	}
 	
-	public static void main(String[]args)
+	public static void main(String[]args) throws IOException
 	{
-		goThrees();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String line;
+		String choice;
+		int num;
+		boolean fin = true;
+		
+		while(fin)
+		{
+		System.out.print("Enter a number: ");
+		line = br.readLine();
+		num = Integer.parseInt(line);
+		goThrees(num);
+		System.out.print("Do you wish to continue?Press 0 to exit or any other key to continue: ");
+		choice = br.readLine();
+		if(choice.equals("0"))
+	       System.exit(0);
+			
 	}
+}
 }
